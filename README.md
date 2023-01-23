@@ -108,8 +108,11 @@ RegisterNumber: 22009033
 
 ### TIMING DIGRAMS  
 
+4:1 mux
+![mux timing 1](https://user-images.githubusercontent.com/121418522/214031582-54845414-d99e-40fa-ba23-92fd2057178d.png)
 
-
+1:4 demux
+![mux timing](https://user-images.githubusercontent.com/121418522/214031737-1e1a9ff0-ed0e-4b99-abb7-c657b3654422.png)
 
 
 ### TRUTH TABLE 
