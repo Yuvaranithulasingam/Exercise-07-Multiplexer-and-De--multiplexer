@@ -48,29 +48,63 @@ If the control input changes to AB = 10, then all the gates are restricted excep
  
 ### Procedure
 /* write all the steps invloved */
+```
+1.Start the module using module projname()
 
+2.Declare the inputs and outputs along with the select lines according to the multiplexer and demultiplexer.
 
+3.Use wire to assign intermediate outputs.
 
-### PROGRAM 
+4.Use and,or and not gates to get the desired output.
+
+5.End the module.
+
+6.Generate RTL realization and timing diagrams.
+
+```
+### PROGRAM :
+4:1 multiplexer
+
+```
+module MUX(I0,I1,I2,I3,S0,S1,Y);
+input I0,I1,I2,I3,S0,S1;
+output Y;
+wire S0C,S1C;
+not(S0C,S0);
+not(S1C,S1);
+wire P,Q,R,S;
+and(P,S0C,S1C,I0);
+and(Q,S0C,S1,I1);
+and(R,S0,S1C,I2);
+and(S,S0,S1,I3);
+or(Y,P,Q,R,S);
+endmodule
+```
+1:4 demultiplexer
+```
+module DEMUX(Y0,Y1,Y2,Y3,S0,S1,I);
+input S0,S1,I;
+output Y0,Y1,Y2,Y3;
+wire S0C,S1C;
+not(S0C,S0);
+not(S1C,S1);
+and(Y0,I,S0C,S1C);
+and(Y1,I,S0C,S1);
+and(Y2,I,S0,S1C);
+and(Y3,I,S0,S1);
+endmodule
+```
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+
+Developed by: Yuvarani T 
+RegisterNumber: 22009033 
 */
 
-
-
-
-
-
 ### RTL LOGIC  
+![Screenshot (23)](https://user-images.githubusercontent.com/121418522/213947109-81f3c379-66b9-44ab-a9ec-32769d3d81af.png)
 
-
-
-
-
-
-
+![DEMUX RTL](https://user-images.githubusercontent.com/121418522/213947307-25df182e-51a5-4040-a6d0-54af217ec90a.png)
 
 ### TIMING DIGRAMS  
 
@@ -80,9 +114,13 @@ RegisterNumber:
 
 ### TRUTH TABLE 
 
+4:1 mux
 
+![mux truthtable](https://user-images.githubusercontent.com/121418522/213947910-a0c061aa-db6c-42ff-bf4a-79fd4b59eaa2.png)
 
+1:4 demux
 
-
+![demux truthtable](https://user-images.githubusercontent.com/121418522/213947998-cac27144-46d6-4880-aa97-0514e9a593dd.png)
 
 ### RESULTS 
+Thus the program to design a 4x1 multiplexer and 1x4 demultiplexer is done successful.
